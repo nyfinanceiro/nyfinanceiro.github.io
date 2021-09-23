@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nyfinanceiro/utils/theme.dart';
 import 'package:nyfinanceiro/views/login_view.dart';
+import 'package:nyfinanceiro/views/password_view.dart';
 
 Future<void> main() async {
   runApp(const MyApp());
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
             debugShowCheckedModeBanner: false,
             theme: AppTheme.lightTheme,
-            home: LoginView()
+            home: PasswordView()
       );
   }
 }
