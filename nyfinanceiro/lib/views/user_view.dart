@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:nyfinanceiro/utils/size.dart';
 import 'package:nyfinanceiro/widgets/myWidget.dart';
 
-class PasswordView extends StatelessWidget {
-  const PasswordView({Key? key}) : super(key: key);
+class UserView extends StatelessWidget {
+  const UserView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     MySize().init(context);
 
     return Padding(
-        padding: EdgeInsets.fromLTRB(500, 50, 500, 320),
+        padding: EdgeInsets.fromLTRB(500, 50, 500, 130),
         child: MyWidget.Container(
             context: context,
             width: 50,
@@ -33,7 +33,7 @@ class PasswordView extends StatelessWidget {
                             MyWidget.Logo(width: 200.0, height: 150.0),
                             MyWidget.Header(
                                 context: context,
-                                title: "Esqueceu a senha?",
+                                title: "Novo usuário",
                                 subtitle: "N.Y Comércio de Produtos Ópticos LTDA"),
                             Container(
                                 margin:
@@ -42,9 +42,9 @@ class PasswordView extends StatelessWidget {
                                     child: Column(
                                       children: [
                                         SizedBox(height: 10.0),
-                                        _emailField(context: context),
+                                        _userFields(context: context),
                                         SizedBox(height: 20.0),
-                                        _sendButton(context: context)
+                                        _submitButton(context: context)
                                       ],
                                     )
                                 )
@@ -61,7 +61,7 @@ class PasswordView extends StatelessWidget {
   }
 
   // Build login form
-  Widget _emailField({required BuildContext context}) {
+  Widget _userFields({required BuildContext context}) {
     return Column(
       children: [
         Container(
@@ -76,7 +76,30 @@ class PasswordView extends StatelessWidget {
                 MyWidget.TextFormField(
                     context: context,
                     //controller: _userController,
-                    hintText: 'Usuário',
+                    hintText: 'Nome',
+                    keyboardType: TextInputType.name,
+                    textCapitalization: TextCapitalization.none,
+                    obscureText: false,
+                    inputFormatters: [],
+                    prefixIcon: Icon(Icons.person)
+                ),
+              ],
+            ),
+          ),
+        ),
+        Container(
+          margin:
+          EdgeInsets.only(
+              left: MySize.size24!, right: MySize.size24!, top: 0),
+          child: MyWidget.Container(
+            context: context,
+            width: 350,
+            child: Column(
+              children: <Widget>[
+                MyWidget.TextFormField(
+                    context: context,
+                    //controller: _userController,
+                    hintText: 'E-mail',
                     keyboardType: TextInputType.emailAddress,
                     textCapitalization: TextCapitalization.none,
                     obscureText: false,
@@ -87,27 +110,58 @@ class PasswordView extends StatelessWidget {
             ),
           ),
         ),
+        Container(
+          margin:
+          EdgeInsets.only(left: MySize.size24!, right: MySize.size24!),
+          child: MyWidget.Container(
+            context: context,
+            width: 350,
+            child: Column(
+                children: <Widget>[
+                  MyWidget.TextFormField(
+                      context: context,
+                      //controller: _passwordController,
+                      hintText: 'Senha',
+                      keyboardType: TextInputType.visiblePassword,
+                      textCapitalization: TextCapitalization.none,
+                      obscureText: true,
+                      inputFormatters: [],
+                      prefixIcon: Icon(Icons.password_outlined)
+                  ),
+                ]
+            ),
+          ),
+        ),
+        Container(
+          margin:
+          EdgeInsets.only(left: MySize.size24!, right: MySize.size24!),
+          child: MyWidget.Container(
+            context: context,
+            width: 350,
+            child: Column(
+                children: <Widget>[
+                  MyWidget.TextFormField(
+                      context: context,
+                      //controller: _passwordController,
+                      hintText: 'Confirmar senha',
+                      keyboardType: TextInputType.visiblePassword,
+                      textCapitalization: TextCapitalization.none,
+                      obscureText: true,
+                      inputFormatters: [],
+                      prefixIcon: Icon(Icons.password_outlined)
+                  ),
+                ]
+            ),
+          ),
+        ),
       ],
     );
   }
 
-  // TextButton with forgot password link
-  Widget _forgotPassword({required BuildContext context}) {
-    return Container(
-        padding: EdgeInsets.fromLTRB(0, 0, 200, 0),
-        child: MyWidget.TextButton(
-            context: context,
-            aligment: Alignment.bottomRight,
-            onPressed: () {},
-            text: "Esqueci a senha"
-        )
-    );
-  }
-
   // Login form fxbutton
-  Widget _sendButton({required BuildContext context}) {
+  Widget _submitButton({required BuildContext context}) {
     return ElevatedButton(
-        child: Text("Solicitar nova senha"),
+        child: Text("Salvar"),
         onPressed: () {},
         style: ButtonStyle(
             padding: MaterialStateProperty.all(EdgeInsets.all(19))

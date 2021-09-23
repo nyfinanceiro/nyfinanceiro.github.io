@@ -24,7 +24,7 @@ PreferredSizeWidget build(
       onTap: () {
         Navigator.of(context).pop();
       },
-      child: Icon(MdiIcons.chevronLeft, color: themeData.primaryColor),
+      child: Icon(Icons.flip_to_back, color: themeData.primaryColor),
     ) : null,
     title: Text(title ?? "",
           style: TextStyle(color: Colors.white),

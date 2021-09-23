@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nyfinanceiro/utils/size.dart';
+import 'package:nyfinanceiro/views/password_view.dart';
+import 'package:nyfinanceiro/views/user_view.dart';
 import 'package:nyfinanceiro/widgets/myWidget.dart';
 
 class LoginView extends StatelessWidget {
@@ -122,7 +124,11 @@ class LoginView extends StatelessWidget {
       child: MyWidget.TextButton(
           context: context,
           aligment: Alignment.bottomRight,
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(context, MaterialPageRoute(
+                builder: (context) => PasswordView())
+            );
+          },
           text: "Esqueci a senha"
       )
     );
@@ -145,7 +151,11 @@ class LoginView extends StatelessWidget {
       padding: EdgeInsets.all(20),
       child: MyWidget.TextGestureDetector(
           context: context,
-          onTap: () {},
+          onTap: () {
+            Navigator.push(context, MaterialPageRoute(
+                builder: (context) => UserView())
+            );
+          },
           text: "Criar novo usuário"
       )
     );
