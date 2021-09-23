@@ -37,19 +37,20 @@ class LoginView extends StatelessWidget {
                               subtitle: "N.Y Comércio de Produtos Ópticos LTDA"),
                           Container(
                               margin:
-                              EdgeInsets.only(left: MySize.size24!, right: MySize.size24!, top: MySize.size36),
+                              EdgeInsets.only(left: MySize.size24!, right: MySize.size24!, top: 10),
                               child: Form(
                                   child: Column(
                                     children: [
                                       SizedBox(height: 10.0),
                                       _loginFields(context: context),
+                                      _forgotPassword(context:context),
                                       SizedBox(height: 10.0),
                                       _loginButton(context: context)
                                     ],
                                   )
                               )
                           ),
-                          //_newAccount()
+                          _newAccount(context: context)
                         ],
                       ),
                     ),
@@ -114,20 +115,38 @@ class LoginView extends StatelessWidget {
     );
   }
 
+  // TextButton with forgot password link
+  Widget _forgotPassword({required BuildContext context}) {
+    return Container(
+      padding: EdgeInsets.fromLTRB(0, 0, 200, 0),
+      child: MyWidget.TextButton(
+          context: context,
+          aligment: Alignment.bottomRight,
+          onPressed: () {},
+          text: "Esqueci a senha"
+      )
+    );
+  }
+
   // Login form fxbutton
   Widget _loginButton({required BuildContext context}) {
-    /*return MyWidget.Button(
-        context: context,
-        onPressed: () {
-
-        },
-        text: "Acessar"
-    );*/
     return ElevatedButton(
       child: Text("Acessar"),
       onPressed: () {},
       style: ButtonStyle(
-        padding: MaterialStateProperty.all(EdgeInsets.all(17))
+        padding: MaterialStateProperty.all(EdgeInsets.all(19))
+      )
+    );
+  }
+
+  // Link to create a new account
+  Widget _newAccount({required BuildContext context}) {
+    return Container(
+      padding: EdgeInsets.all(20),
+      child: MyWidget.TextGestureDetector(
+          context: context,
+          onTap: () {},
+          text: "Criar novo usuário"
       )
     );
   }

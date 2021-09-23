@@ -26,7 +26,7 @@ Widget build({ BuildContext? context,  String? title,  String? subtitle}) {
           subtitle ?? "",
           softWrap: true,
           style: AppTheme.getTextStyle(
-              themeData.textTheme.bodyText1,
+              themeData.textTheme.bodyText2,
               fontWeight: 600,
               height: 1.2,
               color: themeData.colorScheme.onBackground
